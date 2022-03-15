@@ -1,0 +1,15 @@
+.pulse {
+    animation: pulse-animation 2s infinite;
+}
+.circle {
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 1px #0000001a;
+}
+@keyframes pulse-animation {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 119, 255, 0.336);
+    }
+    100% {
+      box-shadow: 0 0 0 10px rgba(0, 195, 255, 0);
+    }
+}

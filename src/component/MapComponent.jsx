@@ -1,10 +1,12 @@
 import React from 'react'
 import '../style/MapComponent.css'
 import Loader from './Loader';
+import { bikeNetwork } from './Icons';
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl, Tooltip, useMap } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { setUserLatLng, fetchCountryCode, fetchAllBikeNetworks } from '../redux/action';
+import NetworksComponent from './NetworksComponent';
 
 function MapComponent() {   
 
@@ -43,11 +45,8 @@ function MapComponent() {
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={userMarker}>
-              <Tooltip>
-                A pretty CSS3 popup. <br /> Easily customizable.
-              </Tooltip>
-            </Marker>
+            <Marker position={userMarker}></Marker>
+            <NetworksComponent networks={networks}/>
         </MapContainer>
   )
 }
