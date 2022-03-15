@@ -1,5 +1,7 @@
 import { initialState } from "../store";
-import { USER_LOCATION } from "../action";
+import { USER_LOCATION, 
+         FETCH_COUNTRY_CODE, 
+         FETCH_ALL_BIKE_NETWORKS } from "../action";
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -12,6 +14,16 @@ export const rootReducer = (state = initialState, action) => {
                     long: action.payload.long
                 },
                 isLoading: false,
+            }
+        case FETCH_COUNTRY_CODE:
+            return {
+                ...state,
+                countryCode: action.payload
+            }
+        case FETCH_ALL_BIKE_NETWORKS: 
+            return {
+                ...state,
+                allBikeNetworks: action.payload
             }
         default:
             return {

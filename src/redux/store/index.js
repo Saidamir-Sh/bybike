@@ -3,8 +3,10 @@ import thunk from 'redux-thunk';
 import { rootReducer } from '../reducer';
 
 export const initialState = {
+    countryCode: null,
     userPosition: {},
     mapCenter: {},
+    allBikeNetworks: {},
     isLoading: true
 }
 

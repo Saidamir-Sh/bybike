@@ -9,7 +9,7 @@ import  MapComponent from './component/MapComponent';
 function App() {
   return (
     <Provider store={configureStore}>
-      <Container>
+      <Container fluid={true} className='px-0 overflow-hidden'>
         <MapComponent />
       </Container>
     </Provider>
