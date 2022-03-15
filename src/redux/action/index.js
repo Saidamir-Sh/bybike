@@ -40,12 +40,13 @@ export const fetchCountryCode = () => {
 export const fetchAllBikeNetworks = () => {
     return async (dispatch) => {
         try {
-            let response = await fetch(`http://api.citybik.es/v2/networks`, {mode: 'cors'}, 
-            {headers : {
-                "x-rapidapi-host": "community-citybikes.p.rapidapi.com",
-                "x-rapidapi-key": "6c32858c11mshafd50d3dee6dc14p1ac0b8jsnf6f06fe1b868"
-            }}
-            )
+            let response = await fetch("https://community-citybikes.p.rapidapi.com/valenbisi.json", {
+                method: "GET",
+                headers: {
+                    "x-rapidapi-host": "community-citybikes.p.rapidapi.com",
+                    "x-rapidapi-key": "6c32858c11mshafd50d3dee6dc14p1ac0b8jsnf6f06fe1b868"
+                }
+            })
             if(response.ok) {
                 let data = await response.json()
                 dispatch({

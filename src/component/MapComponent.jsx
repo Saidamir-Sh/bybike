@@ -27,7 +27,6 @@ function MapComponent() {
     // all bike networks
     const bikeNetworks = useSelector((state) => state.allBikeNetworks?.networks) || []
     const networks = bikeNetworks.filter((network) => network.location?.country === countryCode)
-    console.log(networks)
 
     // get user location, bikeNetworks
     useEffect(() => {
