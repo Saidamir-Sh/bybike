@@ -7,6 +7,10 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 userPosition: action.payload,
+                mapCenter: {
+                    lat: action.payload.lat,
+                    long: action.payload.long
+                },
                 isLoading: false,
             }
         default:

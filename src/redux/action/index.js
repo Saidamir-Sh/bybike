@@ -9,7 +9,6 @@ export const setUserLatLng = () => {
                     long: position.coords.longitude,
                     checkUser: true
                 }
-                console.log(data)
                 dispatch({
                     type: USER_LOCATION,
                     payload: data,

@@ -7,6 +7,7 @@ export const initialState = {
     mapCenter: {},
     isLoading: true
 }
+console.log(initialState)
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
