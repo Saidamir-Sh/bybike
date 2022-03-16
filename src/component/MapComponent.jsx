@@ -54,19 +54,8 @@ function MapComponent() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={userMarker}></Marker>
-            {/* <NetworksComponent networks={bikeNetworks}/> */}
-            {
-                bikeNetworks?.map((network) => (
-                    <Marker
-                    key={network.id}
-                    position={[intoLatLng(network.lat), intoLatLng(network.lng)]}
-                    >
-                      <Popup>
-                          {network.name}
-                      </Popup>
-                    </Marker>
-                ))
-            }
+            <NetworksComponent networks={bikeNetworks}/>
+            
         </MapContainer>
   )
 }
