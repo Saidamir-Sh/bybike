@@ -73,7 +73,6 @@ export const fetchStations = (name) => {
             })
             if (response.ok) {
                 let data = await response.json()
-                console.log(data)
                 dispatch({
                     type: FETCH_STATIONS,
                     payload: data

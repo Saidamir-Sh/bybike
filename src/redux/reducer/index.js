@@ -24,7 +24,7 @@ export const rootReducer = (state = initialState, action) => {
         case FETCH_ALL_BIKE_NETWORKS: 
             return {
                 ...state,
-                allBikeNetworks: action.payload
+                allBikeNetworks: action.payload,
             }
         case FETCH_STATIONS: 
             return {
