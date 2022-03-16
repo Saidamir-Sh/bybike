@@ -1,8 +1,12 @@
 import React from 'react'
-import { Marker, Tooltip } from 'react-leaflet';
+import { Marker, Tooltip, Popup } from 'react-leaflet';
+import { useDispatch } from 'react-redux';
+import { fetchStations } from '../redux/action';
 import { bikeNetwork } from './Icons';
 
 function NetworksComponent ({networks}) {
+
+    const dispatch = useDispatch()
      
     // turning number into lat,lng format
      const intoLatLng = (value) => {
@@ -11,6 +15,7 @@ function NetworksComponent ({networks}) {
         let LatLng = parseFloat(arr.join(''))
         return LatLng
     }
+    console.log(networks)
    
   return (
       <>
@@ -20,11 +25,11 @@ function NetworksComponent ({networks}) {
           key={bike.id}
           icon={ bikeNetwork }
           position={[intoLatLng(bike.lat), intoLatLng(bike.lng)]}
-        //   eventHandlers={{click: () => dispatch(fetchBikeStations(bike.href))}}
+          eventHandlers={{click: () => dispatch(fetchStations(bike.name))}}
           >
-            <Tooltip>
+            <Popup>
               {bike.name}
-            </Tooltip>
+            </Popup>
           </Marker>
     ))
       }

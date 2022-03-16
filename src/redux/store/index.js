@@ -7,7 +7,9 @@ export const initialState = {
     userPosition: {},
     mapCenter: {},
     allBikeNetworks: [],
-    isLoading: true
+    stations: {},
+    isLoading: true,
+    checkStations: false,
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

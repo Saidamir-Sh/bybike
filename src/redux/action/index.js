@@ -1,6 +1,7 @@
 export const USER_LOCATION = 'USER_LOCATION'
 export const FETCH_COUNTRY_CODE = 'FETCH_COUNTRY_CODE'
 export const FETCH_ALL_BIKE_NETWORKS = 'FETCH_ALL_BIKE_NETWORKS'
+export const FETCH_STATIONS = 'FETCH_STATIONS' 
 
 export const setUserLatLng = () => {
     return (dispatch) => {
@@ -56,6 +57,30 @@ export const fetchAllBikeNetworks = () => {
             }
         } catch (error) {
             console.log('Error occured while fetching all bike networks : ' + error)
+        }
+    }
+}
+
+export const fetchStations = (name) => {
+    return async (dispatch) => {
+        try {
+            let response = await fetch(`https://community-citybikes.p.rapidapi.com/${name}.json`, {
+                method: "GET",
+                headers: {
+                    "x-rapidapi-host": "community-citybikes.p.rapidapi.com",
+                    "x-rapidapi-key": "6c32858c11mshafd50d3dee6dc14p1ac0b8jsnf6f06fe1b868"
+                }
+            })
+            if (response.ok) {
+                let data = await response.json()
+                console.log(data)
+                dispatch({
+                    type: FETCH_STATIONS,
+                    payload: data
+                })
+            }
+        } catch (error) {
+            console.log('Error occured while fetching bike stations : ' + error)
         }
     }
 }
