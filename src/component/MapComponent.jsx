@@ -1,5 +1,5 @@
 import React from 'react'
-import '../style/MapComponent.css'
+import '../styles/MapComponent.css'
 import Loader from './Loader';
 import { bikeNetwork } from './Icons';
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl, Tooltip, useMap } from 'react-leaflet';
@@ -27,9 +27,17 @@ function MapComponent() {
     const mapCenter = [mapLat, mapLong]
 
     // all bike networks
-    const bikeNetworks = useSelector((state) => state.allBikeNetworks?.networks) || []
-    const networks = bikeNetworks.filter((network) => network.location?.country === countryCode)
+    const bikeNetworks = useSelector((state) => state.allBikeNetworks) || []
+    
+    // turning number into lat,lng format
+    const intoLatLng = (value) => {
+        let arr = value.toString().split("")
+        let formattedArr = arr.splice(2, 0, '.')
+        let LatLng = parseFloat(arr.join(''))
+        return LatLng
+    }
 
+    
     // get user location, bikeNetworks
     useEffect(() => {
         dispatch(setUserLatLng())
@@ -46,7 +54,19 @@ function MapComponent() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={userMarker}></Marker>
-            <NetworksComponent networks={networks}/>
+            {/* <NetworksComponent networks={bikeNetworks}/> */}
+            {
+                bikeNetworks?.map((network) => (
+                    <Marker
+                    key={network.id}
+                    position={[intoLatLng(network.lat), intoLatLng(network.lng)]}
+                    >
+                      <Popup>
+                          {network.name}
+                      </Popup>
+                    </Marker>
+                ))
+            }
         </MapContainer>
   )
 }

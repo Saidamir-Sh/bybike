@@ -6,7 +6,7 @@ export const initialState = {
     countryCode: null,
     userPosition: {},
     mapCenter: {},
-    allBikeNetworks: {},
+    allBikeNetworks: [],
     isLoading: true
 }
 

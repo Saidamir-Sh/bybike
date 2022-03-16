@@ -3,15 +3,15 @@ import { Marker, Tooltip } from 'react-leaflet';
 import { bikeNetwork } from './Icons';
 
 function NetworksComponent ({networks}) {
-    console.log(networks)
+    
   return (
       <>
-    {
+    {/* {
         networks?.map((bike) => (
           <Marker
           key={bike.id}
           icon={ bikeNetwork }
-          position={[bike.location.latitude, bike.location.longitude]}
+          position={[bike.lat, bike.lng]}
         //   eventHandlers={{click: () => dispatch(fetchBikeStations(bike.href))}}
           >
             <Tooltip>
@@ -19,7 +19,7 @@ function NetworksComponent ({networks}) {
             </Tooltip>
           </Marker>
     ))
-      }
+      } */}
       </>
   )
 }

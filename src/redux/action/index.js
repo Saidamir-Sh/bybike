@@ -40,7 +40,7 @@ export const fetchCountryCode = () => {
 export const fetchAllBikeNetworks = () => {
     return async (dispatch) => {
         try {
-            let response = await fetch("https://community-citybikes.p.rapidapi.com/valenbisi.json", {
+            let response = await fetch("https://community-citybikes.p.rapidapi.com/networks.json", {
                 method: "GET",
                 headers: {
                     "x-rapidapi-host": "community-citybikes.p.rapidapi.com",
