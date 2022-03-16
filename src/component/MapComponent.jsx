@@ -9,6 +9,7 @@ import NetworksComponent from './NetworksComponent';
 import StationsComponent from './StationsComponent';
 import RoutingMachine from './RoutingMachine';
 import { intoLatLng } from './ValueFormatter';
+import Dashboard from './Dashboard';
 
 function MapComponent() {   
 
@@ -51,7 +52,6 @@ function MapComponent() {
         dispatch(fetchAllBikeNetworks())
     }, [])
 
-
   return ( 
     isLoading ? <Loader /> : 
         <MapContainer center={mapCenter} zoom={11} scrollWheelZoom={true} zoomControl={false}>
@@ -60,13 +60,14 @@ function MapComponent() {
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             <Marker position={userMarker}></Marker>
+            <Dashboard />
             <NetworksComponent networks={bikeNetworks}/>
             <StationsComponent setRoute={setBikeAdress}/>
-            <ZoomControl position="topright" />
             { checkBikeAdress ? 
             <RoutingMachine checkBikeAdress={checkBikeAdress} userLat={userLat} userLong={userLong} bikeLat={bikeLat} bikeLong={bikeLong}/> : 
             null 
             }
+             <ZoomControl position="topright" />
         </MapContainer>
   )
 }

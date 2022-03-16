@@ -1,0 +1,142 @@
+.dashboard {
+    width: 25%;
+    height: 100vh;
+    cursor: auto;
+    z-index: 999;
+    position: absolute;
+    background: #ffffff;
+    transform: translateX(-100%);
+    transition: all .6s ease-in-out;
+    box-shadow:  10px 20px 30px #bebebe,
+             -10px -20px 30px #ffffff;
+}
+.inactive {
+    transform: translateX(0%);
+    transition: all .6s ease-in-out;
+}
+.dashboard-arrow {
+    height: 50px;
+    width: 30px;
+    cursor: pointer;
+    background: #FFFFFF;
+    position: absolute;
+    right: -1.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 20%; 
+    touch-action: unset;
+}
+.search-input {
+    width: 90%;
+    border-radius: 10px;
+    z-index: 9999;
+}
+.bi-search {
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    color: grey;
+    font-size: 1.2rem;
+}
+.search-result {
+    cursor: pointer;
+    border: none;
+    border-radius: 0%;
+}
+.search-result:hover {
+    background: #bebebe42;
+}
+.search-result-container {
+    width: 90%;
+    z-index: 9999;
+}
+.location-btn {
+    width: 90%;
+    position: absolute;
+    z-index: 9999;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+/* Leaflet routing control */
+.leaflet-routing-container {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 17% !important;
+    width: 90% !important;
+
+} 
+.leaflet-routing-alt h3 {
+    font-size: .8rem !important;
+    font-weight: 600 !important;
+}
+.leaflet-routing-instruction-text {
+    padding: 1em !important ;
+}
+/* Dashboard Intro  */
+.dashboard-intro {
+   width: 90%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   position: absolute;
+   top: 50%;
+   right: 50%;
+   transform: translate(50%, -50%);
+}
+.intro-text {
+    width: 90%;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 10%;
+}
+.intro-text h1 {
+    font-size: 1.5rem;
+    text-align: center;
+}
+.intro-text p {
+    text-align: center;
+    font-size: 1rem;
+}
+.pulse-img {
+    animation: pulse-animation-img 2s infinite;
+}
+.circle-img {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 1px #0000001a;
+}
+@keyframes pulse-animation-img {
+    0% {
+      box-shadow: 0 0 0 0px rgba(0, 119, 255, 0.349);
+    }
+    100% {
+      box-shadow: 0 0 0 30px rgba(0, 195, 255, 0);
+    }
+}
+
+/* Media Quuery */
+/*Small devices (landscape phones, 576px and up)*/
+@media (max-width: 576px) { 
+    .dashboard , .inactive {
+        width: 90%;
+        z-index: 9999;
+    }
+    .intro-text {
+        z-index: 9999;
+    }
+ }
+@media (min-width: 768px) and (max-width: 810px) {
+    .dashboard, .inactive {
+        width: 50%;
+        z-index: 9999;
+    }
+    .intro-text {
+        z-index: 9999;
+    }
+}
