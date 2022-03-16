@@ -31,7 +31,7 @@ function MapComponent() {
     
     // turning number into lat,lng format
     const intoLatLng = (value) => {
-        let arr = value.toString().split("")
+        let arr = value?.toString().split("")
         let formattedArr = arr.splice(2, 0, '.')
         let LatLng = parseFloat(arr.join(''))
         return LatLng
