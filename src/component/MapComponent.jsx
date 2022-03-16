@@ -1,13 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../styles/MapComponent.css'
 import Loader from './Loader';
-import { bikeNetwork } from './Icons';
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl, Tooltip, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker,  ZoomControl, useMap } from 'react-leaflet';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { setUserLatLng, fetchCountryCode, fetchAllBikeNetworks } from '../redux/action';
 import NetworksComponent from './NetworksComponent';
 import StationsComponent from './StationsComponent';
+import RoutingMachine from './RoutingMachine';
+import { intoLatLng } from './ValueFormatter';
 
 function MapComponent() {   
 
@@ -19,7 +20,6 @@ function MapComponent() {
     // user location
     const userLat = useSelector((state) => state.userPosition?.lat)
     const userLong = useSelector((state) => state.userPosition?.long)
-    const countryCode = useSelector((state) => state.countryCode)
     const userMarker = [userLat, userLong]
 
     // map center for different views
@@ -29,15 +29,20 @@ function MapComponent() {
 
     // all bike networks
     const bikeNetworks = useSelector((state) => state.allBikeNetworks) || []
-    
-    // turning number into lat,lng format
-    const intoLatLng = (value) => {
-        let arr = value?.toString().split("")
-        let formattedArr = arr.splice(2, 0, '.')
-        let LatLng = parseFloat(arr.join(''))
-        return LatLng
-    }
 
+    // states for routing component
+    const [bikeLat, setBikeLat] = useState(null)                      
+    const [bikeLong, setBikeLong] = useState(null)                  
+    const [checkBikeAdress, setCheckBikeAdress] = useState(false) 
+
+    // setting route to station
+    const setBikeAdress = (station) => {
+        setBikeLat(intoLatLng(station.lat))
+        setBikeLong(intoLatLng(station.lng))
+
+        setCheckBikeAdress(false)
+        setCheckBikeAdress(true)
+      }
     
     // get user location, bikeNetworks
     useEffect(() => {
@@ -56,8 +61,12 @@ function MapComponent() {
             />
             <Marker position={userMarker}></Marker>
             <NetworksComponent networks={bikeNetworks}/>
-            <StationsComponent />
+            <StationsComponent setRoute={setBikeAdress}/>
             <ZoomControl position="topright" />
+            { checkBikeAdress ? 
+            <RoutingMachine checkBikeAdress={checkBikeAdress} userLat={userLat} userLong={userLong} bikeLat={bikeLat} bikeLong={bikeLong}/> : 
+            null 
+            }
         </MapContainer>
   )
 }

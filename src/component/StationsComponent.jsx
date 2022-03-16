@@ -4,12 +4,12 @@ import { stationIcon } from './Icons'
 import { intoLatLng } from './ValueFormatter'
 import { Marker, Tooltip, } from 'react-leaflet';
 
-function StationsComponent() {
+function StationsComponent({setRoute}) {
 
     // stations
     const stations = useSelector((state) => state.stations)
     const checkStations = useSelector((state) => state.checkStations)
-    
+
   return (
     <>
         {
@@ -19,6 +19,7 @@ function StationsComponent() {
                  key={station.id}
                  icon={stationIcon}
                  position={[intoLatLng(station.lat), intoLatLng(station.lng)]}
+                 eventHandlers={{click: () => setRoute(station)}}
                  >
                     <Tooltip>
                         <div style={{lineHeight: '3px'}}>
