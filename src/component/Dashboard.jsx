@@ -13,7 +13,7 @@ function Dashboard() {
     setIsActive(!isActive)
     }
   return (
-    <div id='dashboard' className={isActive ? 'dashboard' : 'dashboard inactive'}>
+    <div id='dashboard' className={!isActive ? 'dashboard' : 'dashboard inactive'}>
          <div onClick={(e) => handleSideBar(e)} className=' dashboard-arrow d-flex align-items-center justify-content-center'>
             {isActive ? <ArrowRightIcon /> : <ArrowLeftIcon/>}
           </div>
