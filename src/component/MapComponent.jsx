@@ -44,6 +44,15 @@ function MapComponent() {
         setCheckBikeAdress(false)
         setCheckBikeAdress(true)
       }
+
+    // append routing control to dashboard
+    useEffect(() => {
+      let el = document.getElementsByClassName('leaflet-routing-container')[0]
+      if (el) {
+        let dashboard = document.getElementById('dashboard')
+        dashboard.appendChild(el)
+      }
+    }, [checkBikeAdress])    
     
     // get user location, bikeNetworks
     useEffect(() => {

@@ -4,3 +4,7 @@
     z-index: 10;
     position: fixed;
 }
+.leaflet-routing-container {
+    border: none !important;
+    background: #ffffff !important;
+}

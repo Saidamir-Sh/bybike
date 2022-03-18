@@ -12,9 +12,13 @@ function SearchComponent() {
    const [searchQuery, setSearchQuery] = useState('')
    const [showResults, setShowResults] = useState(false)
 
+// user location
+   const userLat = useSelector((state) => state.userPosition?.lat)
+   const userLong = useSelector((state) => state.userPosition?.long)
+   const userMarker = [userLat, userLong]
+
 // networks for search
    const networks = useSelector((state) => state.allBikeNetworks) || []
-
 
 // prevent page refreshing
   const handleSubmit = (e) => {
@@ -36,6 +40,11 @@ function SearchComponent() {
     setSearchQuery(network.city)
     map.flyTo(toPosition)
   }
+
+// set view to user location
+  const setViewToUser = (userMarker) => {
+    map.flyTo(userMarker)
+  }
   
   return (
     <>
@@ -50,11 +59,11 @@ function SearchComponent() {
               <i className="bi bi-search"></i>
             </Form.Group>
             <Button variant="primary" 
-            // onClick={setViewToLocation}
+            onClick={() => setViewToUser(userMarker)}
             className='location-btn py-2'>Current location</Button>
         </Form>
 
-        <Card className={showResults ? 'search-result-container mx-auto ' : 'search-result-container mx-auto d-none'}>
+        <Card className={showResults ? 'search-result-container mx-auto ' : 'search-result-container-hide mx-auto'}>
             {
               networks?.filter((network) => {
                 if(!searchQuery) return false
@@ -69,5 +78,4 @@ function SearchComponent() {
         </>
   )
 }
-//onClick={() => {handleClickOnResult(network)}}
 export default SearchComponent
