@@ -43,6 +43,7 @@ function SearchComponent() {
 
 // set view to user location
   const setViewToUser = (userMarker) => {
+    setSearchQuery('')
     map.flyTo(userMarker)
   }
   
