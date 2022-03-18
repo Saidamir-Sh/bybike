@@ -48,6 +48,8 @@
 }
 .search-result-container {
     width: 90%;
+    height: 50vh;
+    overflow-y: scroll;
     z-index: 9999;
 }
 .location-btn {

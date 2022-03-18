@@ -3,15 +3,12 @@ import '../styles/Dashboard.css'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import ArrowLeftIcon from '@mui/icons-material/ArrowLeft';
 import dashboardImage from '../assets/dashboardimg.png'
+import SearchComponent from './SearchComponent';
 
 function Dashboard() {
 
     // show hide sidebar
     const [isActive, setIsActive] = useState(false)
-
-    // search input results
-    const [searchQuery, setSearchQuery] = useState('')
-    const [showResults, setShowResults] = useState(false)
 
     // collapse side bar
     const handleSideBar = (e) => {
@@ -21,6 +18,8 @@ function Dashboard() {
 
   return (
     <div id='dashboard' className={!isActive ? 'dashboard' : 'dashboard inactive'}>
+      <p className='text-center pt-2'>Made with <i className="bi bi-suit-heart" style={{color: 'red'}}></i> in Poland</p>
+      <SearchComponent />
       <div className='dashboard-intro'>
         <img src={dashboardImage} width='50%' alt='Logo for Dashboard' />
         <div className='pulse-img circle-img'></div>
