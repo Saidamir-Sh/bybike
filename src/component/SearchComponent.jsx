@@ -43,7 +43,7 @@ function SearchComponent() {
             <Form.Group className='d-flex align-items-center position-relative flex-column' controlId="formBasicText">
               <Form.Control 
               onChange={(e) => handleInputChange(e)}
-              defaultValue={searchQuery}
+              value={searchQuery}
               className='search-input mx-auto mt-2 shadow-none' 
               type="text" 
               placeholder="Search for other cities..." />
