@@ -135,8 +135,13 @@
         z-index: 9999;
     }
     .intro-text {
-        display: none;
         z-index: 9999;
+    }
+    .intro-text h1 {
+        font-size: 1.2rem;
+    }
+    .intro-text p {
+        font-size: .9rem;
     }
  }
 @media (min-width: 768px) and (max-width: 810px) {
