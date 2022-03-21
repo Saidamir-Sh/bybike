@@ -109,6 +109,9 @@
     text-align: center;
     font-size: 1rem;
 }
+.intro-text-rwd {
+    display: block;
+}
 .pulse-img {
     animation: pulse-animation-img 2s infinite;
 }
@@ -143,6 +146,9 @@
     }
     .intro-text p {
         font-size: .9rem;
+    }
+    .intro-text-rwd {
+        display: none;
     }
     .dashboard-intro {
         top: 40%;

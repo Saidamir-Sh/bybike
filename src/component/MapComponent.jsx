@@ -51,7 +51,7 @@ function MapComponent() {
       let intro = document.getElementsByClassName('intro-text')[0]
       if (el) {
         let dashboard = document.getElementById('dashboard')
-        intro.classList.add('d-none')
+        intro.classList.add('intro-text-rwd')
         dashboard.appendChild(el)
       }
     }, [checkBikeAdress])    
