@@ -63,7 +63,7 @@ function MapComponent() {
 
   return ( 
     isLoading ? <Loader /> : 
-        <MapContainer center={mapCenter} zoom={11} scrollWheelZoom={true} zoomControl={false}>
+        <MapContainer center={mapCenter} zoom={11}  scrollWheelZoom={true} zoomControl={false}>
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

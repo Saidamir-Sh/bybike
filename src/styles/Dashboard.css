@@ -129,13 +129,13 @@
 }
 
 /* Media Quuery */
-/*Small devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) { 
     .dashboard , .inactive {
         width: 90%;
         z-index: 9999;
     }
     .intro-text {
+        display: none;
         z-index: 9999;
     }
  }
