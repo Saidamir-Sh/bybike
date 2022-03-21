@@ -136,7 +136,7 @@
     }
     .intro-text {
         z-index: 9999;
-        bottom: 30%;
+        bottom: 25%;
     }
     .intro-text h1 {
         font-size: 1.2rem;
@@ -150,6 +150,7 @@
         transform: translate(50%, -40%);
     }
     .location-btn {
+        bottom: 13%;
         padding: 0;  
     }
  }

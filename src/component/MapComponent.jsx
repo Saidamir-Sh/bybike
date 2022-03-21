@@ -48,8 +48,10 @@ function MapComponent() {
     // append routing control to dashboard
     useEffect(() => {
       let el = document.getElementsByClassName('leaflet-routing-container')[0]
+      let intro = document.getElementsByClassName('intro-text')[0]
       if (el) {
         let dashboard = document.getElementById('dashboard')
+        intro.classList.add('d-none')
         dashboard.appendChild(el)
       }
     }, [checkBikeAdress])    
