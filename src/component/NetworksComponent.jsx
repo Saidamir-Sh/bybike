@@ -2,13 +2,13 @@ import React from 'react'
 import { Marker, Popup } from 'react-leaflet';
 import { useDispatch } from 'react-redux';
 import { fetchStations } from '../redux/action';
-import { intoLatLng } from './ValueFormatter';
+import { formatName, intoLatLng } from './ValueFormatter';
 import { bikeNetwork } from './Icons';
 
 function NetworksComponent ({networks}) {
 
-    const dispatch = useDispatch()
-   
+  const dispatch = useDispatch()
+
   return (
       <>
     {
@@ -20,7 +20,7 @@ function NetworksComponent ({networks}) {
           eventHandlers={{click: () => dispatch(fetchStations(bike.name))}}
           >
             <Popup>
-              {bike.name}
+              {formatName(bike.name)}
             </Popup>
           </Marker>
     ))
