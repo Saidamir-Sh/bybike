@@ -70,6 +70,7 @@
 /* Leaflet routing control */
 .leaflet-routing-container {
     position: absolute !important;
+    height: 50vh;
     left: 50% !important;
     transform: translateX(-50%) !important;
     top: 17% !important;

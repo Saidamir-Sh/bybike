@@ -8,7 +8,7 @@ import SearchComponent from './SearchComponent';
 function Dashboard() {
 
     // show hide sidebar
-    const [isActive, setIsActive] = useState(false)
+    const [isActive, setIsActive] = useState(true)
 
     // collapse side bar
     const handleSideBar = (e) => {
