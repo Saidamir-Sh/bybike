@@ -18,7 +18,7 @@ function Dashboard() {
 
   return (
     <div id='dashboard' className={!isActive ? 'dashboard' : 'dashboard inactive'}>
-      <p className='text-center pt-2'>Made with <i className="bi bi-suit-heart" style={{color: 'red'}}></i> in Poland</p>
+       <p className='text-center pt-2'>Made with <i className="bi bi-suit-heart" style={{color: 'red'}}></i> in Poland</p>
       <SearchComponent />
       <div className='dashboard-intro'>
         <img src={dashboardImage} width='50%' alt='Logo for Dashboard' />
