@@ -2,13 +2,20 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { stationIcon } from './Icons'
 import { intoLatLng } from './ValueFormatter'
-import { Marker, Tooltip, } from 'react-leaflet';
+import { Marker, Tooltip, Popup } from 'react-leaflet';
+import { Button } from 'react-bootstrap';
+import SavesComponent from './SavesComponent';
 
 function StationsComponent({setRoute}) {
 
     // stations
     const stations = useSelector((state) => state.stations)
     const checkStations = useSelector((state) => state.checkStations)
+
+    // Save station 
+    const saveStation = (e) => {
+      console.log(e.target.value)
+    }
 
   return (
     <>
@@ -21,12 +28,13 @@ function StationsComponent({setRoute}) {
                  position={[intoLatLng(station.lat), intoLatLng(station.lng)]}
                  eventHandlers={{click: () => setRoute(station)}}
                  >
-                    <Tooltip>
+                    <Popup>
                         <div style={{lineHeight: '3px'}}>
                           <p className='font-weight-bold'>{station.name}</p>
-                          <p>{station.free} Bikes</p>
+                          <p style={{fontSize: '.8rem'}}>{station.free} Bikes</p>
                         </div>
-                    </Tooltip> 
+                        <Button  onClick={(e) => saveStation(e)}  className='w-100 py-0' variant='outline-primary'>Save</Button>
+                    </Popup> 
                  </Marker>
              ))
         }

@@ -10,6 +10,7 @@ import StationsComponent from './StationsComponent';
 import RoutingMachine from './RoutingMachine';
 import { intoLatLng } from './ValueFormatter';
 import Dashboard from './Dashboard';
+import SavesComponent from './SavesComponent';
 
 function MapComponent() {   
 
@@ -79,6 +80,7 @@ function MapComponent() {
             null 
             }
              <ZoomControl position="topright" />
+             <SavesComponent />
         </MapContainer>
   )
 }
