@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { stationIcon } from './Icons'
 import { intoLatLng } from './ValueFormatter'
@@ -14,13 +14,18 @@ function StationsComponent({setRoute}) {
     const stations = useSelector((state) => state.stations)
     const checkStations = useSelector((state) => state.checkStations)
 
+    // button disable
+    const [saved, setSaved] = useState(false)
+
     // saved 
     const savedStations = useSelector((state) => state.savedStations)
-    console.log(savedStations)
 
-    // Save station 
+    // save station 
     const saveStation = (station) => {
+      const saveBtn = document.querySelector('.save-btn')
       dispatch(saveStationAction(station))
+      saveBtn.disabled = true
+      setSaved(true)
     }
 
   return (
@@ -39,7 +44,7 @@ function StationsComponent({setRoute}) {
                           <p className='font-weight-bold'>{station.name}</p>
                           <p style={{fontSize: '.8rem'}}>{station.free} Bikes</p>
                         </div>
-                        <Button  onClick={() => saveStation(station)}  className='w-100 py-0' variant='outline-primary'>Save</Button>
+                        <Button  onClick={() => saveStation(station)}  className='w-100 py-0 save-btn' variant='primary'>{!saved ? `Save`: `Saved` }</Button>
                     </Popup> 
                  </Marker>
              ))
