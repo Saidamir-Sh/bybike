@@ -8,6 +8,7 @@ export const initialState = {
     mapCenter: {},
     allBikeNetworks: [],
     stations: {},
+    savedStations: [],
     isLoading: true,
     checkStations: false,
 }
