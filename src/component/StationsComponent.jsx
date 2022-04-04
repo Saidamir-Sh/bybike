@@ -1,21 +1,26 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { stationIcon } from './Icons'
 import { intoLatLng } from './ValueFormatter'
-import { Marker, Tooltip, Popup } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import { Button } from 'react-bootstrap';
+import {saveStationAction} from '../redux/action'
 
 function StationsComponent({setRoute}) {
+
+    const dispatch = useDispatch()
 
     // stations
     const stations = useSelector((state) => state.stations)
     const checkStations = useSelector((state) => state.checkStations)
 
     // saved 
+    const savedStations = useSelector((state) => state.savedStations)
+    console.log(savedStations)
 
     // Save station 
     const saveStation = (station) => {
-      console.log(station)
+      dispatch(saveStationAction(station))
     }
 
   return (

@@ -2,7 +2,8 @@ import { initialState } from "../store";
 import { USER_LOCATION, 
          FETCH_COUNTRY_CODE, 
          FETCH_ALL_BIKE_NETWORKS, 
-         FETCH_STATIONS} from "../action";
+         FETCH_STATIONS,
+         SAVE_STATION} from "../action";
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -31,6 +32,11 @@ export const rootReducer = (state = initialState, action) => {
                 ...state,
                 stations: action.payload,
                 checkStations: true
+            }
+        case SAVE_STATION: 
+            return {
+                ...state,
+                savedStations: [...state.savedStations, action.payload],
             }
         default:
             return {

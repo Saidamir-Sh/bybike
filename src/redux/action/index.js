@@ -2,6 +2,7 @@ export const USER_LOCATION = 'USER_LOCATION'
 export const FETCH_COUNTRY_CODE = 'FETCH_COUNTRY_CODE'
 export const FETCH_ALL_BIKE_NETWORKS = 'FETCH_ALL_BIKE_NETWORKS'
 export const FETCH_STATIONS = 'FETCH_STATIONS' 
+export const SAVE_STATION = 'SAVE_STATION'
 
 export const setUserLatLng = () => {
     return (dispatch) => {
@@ -83,3 +84,8 @@ export const fetchStations = (name) => {
         }
     }
 }
+
+export const saveStationAction = (station) => ({
+    type: SAVE_STATION,
+    payload: station,
+  })
