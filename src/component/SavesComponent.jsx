@@ -10,6 +10,7 @@ function SavesComponent() {
 
   // saved 
   const savedStations = useSelector((state) => state.savedStations)
+  console.log(savedStations)
   
 
   const handleClose = () => setShow(false);
@@ -27,7 +28,21 @@ function SavesComponent() {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-
+                {
+                    savedStations.map((station) => (
+                        <div className='d-flex align-items-center justify-content-between'>
+                            <div>
+                                <p className='d-inline'><i className="bi bi-geo-alt" /> {station.name}</p>
+                                <p className='d-inline'><i className="bi bi-dot" /></p>
+                                <p className='d-inline  mr-1 ml-2 font-weight-bold'>{station.free}</p>
+                                <i className="bi bi-bicycle" style={{fontSize: '1.5rem', marginTop: '-1.4rem'}} />
+                            </div>
+                            <div>
+                            <i className="bi bi-trash" style={{color: '	#df4759', fontSize: '1.1rem'}}/>
+                            </div>
+                        </div>
+                    ))
+                }
             </Modal.Body>
             <Modal.Footer>
              
