@@ -38,13 +38,11 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 savedStations: [...state.savedStations, action.payload],
-                saved: true
             }
         case REMOVE_STATION: 
             return {
                 ...state,
                 savedStations: state.savedStations?.filter((station) => station.id !== action.payload),
-                saved: false
             }
         default:
             return {

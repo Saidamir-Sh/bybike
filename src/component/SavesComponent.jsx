@@ -9,12 +9,13 @@ function SavesComponent() {
 
   const dispatch = useDispatch()
 
+  // hide and show modal
   const [show, setShow] = useState(false);
 
   // saved 
   const savedStations = useSelector((state) => state.savedStations)
   
-
+  // functionality of hiding and showing modal
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 

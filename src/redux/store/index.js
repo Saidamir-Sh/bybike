@@ -11,7 +11,7 @@ export const initialState = {
     savedStations: [],
     isLoading: true,
     checkStations: false,
-    saved: false
+
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

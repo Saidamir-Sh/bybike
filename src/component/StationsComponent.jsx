@@ -14,9 +14,6 @@ function StationsComponent({setRoute}) {
     const stations = useSelector((state) => state.stations)
     const checkStations = useSelector((state) => state.checkStations)
 
-    // button disable
-    const saved = useSelector((state) => state.saved)
-    console.log(saved)
 
     // saved 
     const savedStations = useSelector((state) => state.savedStations)
@@ -24,9 +21,6 @@ function StationsComponent({setRoute}) {
     // save station 
     const saveStation = (station) => {
       dispatch(saveStationAction(station))
-      // const saveBtn = document.querySelector('.save-btn')
-      // console.log(saveBtn)
-      // saveBtn.disabled = true 
     }
 
 
@@ -46,7 +40,7 @@ function StationsComponent({setRoute}) {
                           <p className='font-weight-bold'>{station.name}</p>
                           <p style={{fontSize: '.8rem'}}>{station.free} Bikes</p>
                         </div>
-                        <Button disabled={saved}  onClick={() => saveStation(station)}  className='w-100 py-0 save-btn' variant='primary'>{!saved ? `Save`: `Saved` }</Button>
+                        <Button disabled={savedStations?.some((savedStation) => savedStation.id == station.id)}  onClick={() => saveStation(station)}  className='w-100 py-0 save-btn' variant='primary'>Save</Button>
                     </Popup> 
                  </Marker>
              ))
