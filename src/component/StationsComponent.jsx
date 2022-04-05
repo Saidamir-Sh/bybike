@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { stationIcon } from './Icons'
 import { intoLatLng } from './ValueFormatter'
-import { Marker, Popup } from 'react-leaflet';
+import { Marker, Popup, Tooltip } from 'react-leaflet';
 import { Button } from 'react-bootstrap';
 import {saveStationAction} from '../redux/action'
 
@@ -35,6 +35,12 @@ function StationsComponent({setRoute}) {
                  position={[intoLatLng(station.lat), intoLatLng(station.lng)]}
                  eventHandlers={{click: () => setRoute(station)}}
                  >
+                   <Tooltip>
+                        <div style={{lineHeight: '3px'}}>
+                          <p className='font-weight-bold'>{station.name}</p>
+                          <p style={{fontSize: '.8rem'}}>{station.free} Bikes</p>
+                        </div>
+                   </Tooltip>
                     <Popup>
                         <div style={{lineHeight: '3px'}}>
                           <p className='font-weight-bold'>{station.name}</p>
