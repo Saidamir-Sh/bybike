@@ -3,7 +3,8 @@ import { USER_LOCATION,
          FETCH_COUNTRY_CODE, 
          FETCH_ALL_BIKE_NETWORKS, 
          FETCH_STATIONS,
-         SAVE_STATION} from "../action";
+         SAVE_STATION,
+         REMOVE_STATION} from "../action";
 
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -37,6 +38,11 @@ export const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 savedStations: [...state.savedStations, action.payload],
+            }
+        case REMOVE_STATION: 
+            return {
+                ...state,
+                savedStations: state.savedStations?.filter((station) => station.id !== action.payload)
             }
         default:
             return {

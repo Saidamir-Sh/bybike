@@ -3,6 +3,7 @@ export const FETCH_COUNTRY_CODE = 'FETCH_COUNTRY_CODE'
 export const FETCH_ALL_BIKE_NETWORKS = 'FETCH_ALL_BIKE_NETWORKS'
 export const FETCH_STATIONS = 'FETCH_STATIONS' 
 export const SAVE_STATION = 'SAVE_STATION'
+export const REMOVE_STATION = 'REMOVE_STATION'
 
 export const setUserLatLng = () => {
     return (dispatch) => {
@@ -85,7 +86,14 @@ export const fetchStations = (name) => {
     }
 }
 
+// Add station to saved component
 export const saveStationAction = (station) => ({
     type: SAVE_STATION,
     payload: station,
   })
+
+// remmoving item from saved component
+export const removeFromSaved = (id) => ({
+    type: REMOVE_STATION,
+    payload: id
+})

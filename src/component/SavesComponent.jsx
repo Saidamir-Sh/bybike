@@ -1,16 +1,18 @@
 import React, { useState } from 'react'
 import '../styles/SavesComponent.css'
 import BookmarkAddOutlinedIcon from '@mui/icons-material/BookmarkAddOutlined';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from 'react-bootstrap'
+import { removeFromSaved } from '../redux/action';
 
 function SavesComponent() {
+
+  const dispatch = useDispatch()
 
   const [show, setShow] = useState(false);
 
   // saved 
   const savedStations = useSelector((state) => state.savedStations)
-  console.log(savedStations)
   
 
   const handleClose = () => setShow(false);
@@ -28,17 +30,16 @@ function SavesComponent() {
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                {
-                    savedStations.map((station) => (
-                        <div className='d-flex align-items-center justify-content-between'>
+                { savedStations?.length == 0 ? (<p>No saved stations</p>) : 
+                    savedStations.reverse().map((station) => (
+                        <div key={station.id} className='d-flex align-items-center justify-content-between saved-station px-4 py-1'>
                             <div>
-                                <p className='d-inline'><i className="bi bi-geo-alt" /> {station.name}</p>
-                                <p className='d-inline'><i className="bi bi-dot" /></p>
-                                <p className='d-inline  mr-1 ml-2 font-weight-bold'>{station.free}</p>
-                                <i className="bi bi-bicycle" style={{fontSize: '1.5rem', marginTop: '-1.4rem'}} />
+                                <p className='d-inline' style={{fontSize: '.9rem'}}><i className="bi bi-geo-alt" /> {station.name}</p>
+                                <i className="bi bi-dot"/>
                             </div>
                             <div>
-                            <i className="bi bi-trash" style={{color: '	#df4759', fontSize: '1.1rem'}}/>
+                                <p className='d-inline font-weight-bold'>{station.free} <i className="bi bi-bicycle" style={{fontSize: '1.3rem', marginRight: '1.8rem'}} /></p>
+                                <i onClick={() => dispatch(removeFromSaved(station.id))} className="bi bi-trash" style={{color: '	#df4759', fontSize: '1.1rem'}}/>
                             </div>
                         </div>
                     ))
