@@ -13,4 +13,8 @@
                                 <a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" width="36" height="36" alt="Figma" /></a>
                     </p>
                     
+![bike-1](https://user-images.githubusercontent.com/69676883/168906462-b87c09d0-4851-4f86-b3f7-85ca135858f8.png)
 
+![bike-2](https://user-images.githubusercontent.com/69676883/168906481-861c8294-7ce6-462f-ac1f-ffad42689146.png)
+
+![bike-3](https://user-images.githubusercontent.com/69676883/168906568-e69d8335-6732-45ea-b76d-7564c6c5c791.png)
